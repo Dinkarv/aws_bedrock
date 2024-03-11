@@ -1,9 +1,11 @@
 import boto3
 
 iam_client = boto3.client('iam')
+print("....",iam_client());
 
 # Get the user name or role ARN (depending on your scenario)
-user_name = "div@fullstack"
+user_name = "Dinkarv"
+
 
 # List attached policies (ARNs)
 attached_policies = iam_client.list_attached_role_policies(RoleName=user_name)["AttachedPolicies"] if ":" in user_name else iam_client.list_attached_user_policies(UserName=user_name)["AttachedPolicies"]
